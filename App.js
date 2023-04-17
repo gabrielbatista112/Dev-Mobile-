@@ -1,103 +1,174 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity } from 'react-native';
-import { Fontisto } from '@expo/vector-icons'; 
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, ScrollView, Button, TextInput } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 import { Feather } from '@expo/vector-icons'; 
-
+import { Entypo } from '@expo/vector-icons'; 
 
 export default function App() {
 
-const [email, setEmail] = useState('');
-const [Senha, setSenha] = useState('');
-const [aparecer, setAparecer] = useState('');
 
-function setClicar () {
-
-setAparecer(!aparecer);
-
-}
 
 return (
 
-<View style={styles.container}>
-<Text style={{fontSize: 50, fontStyle: 'italic', color: 'white'}}>VaultPass</Text>
+<ScrollView>
 
-<Text style={styles.text}>Acesse a sua conta</Text>
+<View style={styles.container1}>
 
+<View style={styles.apresentacao}>
 
-<View style={styles.input}>
-<Fontisto name="email" size={15} color="grey" />
+<View style={styles.iconGit}>
+
+<Feather name="lock" size={80} color="black" />
+
+</View>
+
+<View>
+
+<Text style={styles.boldText}>VaultPass</Text>
+<Text style={{fontSize: 10, color: 'black'}}>Conosco você se sente mais seguro</Text>
+
+</View>
+</View>
+
+<Button  title='Armazenar senha' color='white'/>
+
+<View style={styles.box}>
+<View style={styles.text}>
+<Text style={{fontSize: 25}}>Facebook</Text>
 <TextInput
-placeholder=' Email'
-onChangeText={setEmail}
-/>
+placeholder="senha"  />
+
+</View>
+
+<View style={styles.icons}>
+
+
+<Entypo name="facebook" size={50} color="black" />
+
+</View>
 </View>
 
 
-<View style={styles.input}>
-<Feather name="lock" size={15} color="grey" />
+<View style={styles.box}>
+<View style={styles.text}>
+<Text style={{fontSize: 25}}>Instagram</Text>
 <TextInput
-placeholder=' Senha'
-onChangeText={setSenha}
-/>
+placeholder="senha"  />
 
 </View>
 
-<TouchableOpacity style={styles.button}>
-<Button color = 'white' title='login' onPress={setClicar}/>
-</TouchableOpacity>
+<View style={styles.icons}>
 
-{aparecer ?
-<Text style={styles.text}>Acesso liberado...</Text>
-:
-<Text></Text>}
+
+<AntDesign name="instagram" size={50} color="black" />
 
 </View>
+</View>
+
+
+<View style={styles.box}>
+<View style={styles.text}>
+<Text style={{fontSize: 25}}>Twitter</Text>
+<TextInput
+placeholder="senha"  />
+
+</View>
+
+<View style={styles.icons}>
+
+
+<AntDesign name="twitter" size={50} color="black" />
+
+</View>
+</View>
+
+
+<View style={styles.box}>
+<View style={styles.text}>
+<Text style={{fontSize: 25}}>GitHub</Text>
+<TextInput
+placeholder="senha"  />
+
+</View>
+
+<View style={styles.icons}>
+
+
+<AntDesign name="github" size={50} color="black" />
+
+</View>
+</View>
+
+
+<View style={styles.box}>
+<View style={styles.text}>
+<Text style={{fontSize: 25}}>LinkedIn</Text>
+<TextInput
+placeholder="senha"  />
+
+</View>
+
+<View style={styles.icons}>
+
+
+<AntDesign name="linkedin-square" size={50} color="black" />
+
+</View>
+</View>
+
+
+
+</View>
+
+</ScrollView>
 
 );
+
 }
 
 const styles = StyleSheet.create({
 
-
-container: {
-
+container1: {
 flex: 1,
-backgroundColor: '#008080',
-alignItems: 'center',
-justifyContent: 'center',
+backgroundColor: "#008080",
+justifyContent: "flex-start",
 
+},
+
+box: {
+padding: 20,
+backgroundColor: "lightgrey",
+margin: 20,
+borderRadius: 8,
+alignItems: "center",
+flexDirection: "row",
 },
 
 text: {
-color: 'white',
-
-
+flex: 1,
+marginRight: 10,
 },
 
-input:{
+icons: {
+width: 50,
+flexDirection: "row",
+},
+
+apresentacao: {
+padding: 20,
+margin: 20,
+borderRadius: 8,
+alignItems: "center",
 flexDirection: 'row',
-backgroundColor: 'white',
-borderWidth: 1,
-borderRadius: 10,
-borderColor: '#777',
-padding: 8,
-margin: 10,
-width: 200,
-paddingHorizontal: 16,
-
+justifyContent: 'space-around',
 },
 
-button:{
-
-backgroundColor: '#66CDAA',
-width: 130,
-height: 40,
-borderRadius: 30,
-
-
-
-
-
+boldText: {
+fontWeight: 'bold',
+fontSize: 25
 },
+
+
+
 
 });
